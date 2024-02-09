@@ -8,39 +8,45 @@ public class Main {
 
         List<Country> countriesList = new ArrayList<>();
         countriesList.addAll(List.of(
-                new Country("Sweden", "", ""),
-                new Country("Israel", "", ""),
-                new Country("Italy", "", ""),
-                new Country("Finland", "", ""),
-                new Country("Estonia", "", ""),
-                new Country("Australia", "", ""),
-                new Country("Belgium", "", ""),
-                new Country("Austria", "", ""),
-                new Country("Spain", "", ""),
-                new Country("Czech Republic", "", ""),
-                new Country("Lituania ", "", ""),
-                new Country("Armenia", "", ""),
-                new Country("Cyprus", "", ""),
-                new Country("Swiss", "", ""),
-                new Country("Ukraine", "", ""),
-                new Country("France", "", ""),
-                new Country("Norway", "", ""),
-                new Country("Portugal", "", ""),
-                new Country("Slovenia", "", ""),
-                new Country("Moldova", "", ""),
-                new Country("Albania", "", ""),
-                new Country("United Kingdom", "", ""),
-                new Country("Serbia", "", ""),
-                new Country("Poland", "", ""),
-                new Country("Croatia", "", ""),
-                new Country("Germany", "", "")));
+                new Country("Sweden", "Loreen", "Tattoo"),
+                new Country("Israel", "Noa Kirel", "Unicorn"),
+                new Country("Italy", "Marco Mengoni", "Due Vite"),
+                new Country("Finland", "Käärijä", "Cha Cha Cha"),
+                new Country("Estonia", "Alika", "Bridges"),
+                new Country("Australia", "Voyager", "Promise"),
+                new Country("Belgium", "Gustaph", "Because of You"),
+                new Country("Austria", "Teya & Salena", "Who the Hell Is Edgar?"),
+                new Country("Spain", "Blanca Paloma", "Eaea"),
+                new Country("Czech Republic", "Vesna", "My Sister's Crown"),
+                new Country("Lituania ", "Monika Linkytė", "Stay"),
+                new Country("Armenia", "Brunette", "Future Lover"),
+                new Country("Cyprus", "Andrew Lambrou", "Break a Broken Heart"),
+                new Country("Swiss", "Remo Forrer", "Watergun"),
+                new Country("Ukraine", "Tvorchi", "Heart of Steel"),
+                new Country("France", "La Zarra", "Évidemment"),
+                new Country("Norway", "Alessandra", "Queen of Kings"),
+                new Country("Portugal", "Mimicat", "Ai Coração"),
+                new Country("Slovenia", "Joker Out", "Carpe Diem"),
+                new Country("Moldova", "Pasha Parfeni", "Soarele şi Luna"),
+                new Country("Albania", "Albina & Familja Kelmendi", "Duje"),
+                new Country("United Kingdom", "Mae Muller", "I Wrote a Song"),
+                new Country("Serbia", "Luke Black", "Samo mi se spava"),
+                new Country("Poland", "Blanka", "Solo"),
+                new Country("Croatia", "Let 3", "Mama ŠČ!"),
+                new Country("Germany", "Lord of the Lost", "Blood & Glitter")));
 
 
-        for (int i = 0; i < 100; i++) {
-            System.out.println((int) (Math.random() * 27));
+        for (Country c : countriesList) {
+            c.vote(countriesList);
         }
-        System.out.println((int) (Math.random() * 27));
 
+
+
+        for (Country c : countriesList) {
+            System.out.println(c);
+        }
+
+        System.out.println();
 
     }
 }

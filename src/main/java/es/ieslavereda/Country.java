@@ -24,24 +24,19 @@ public class Country {
 
     public void vote(List<Country> countriesList) {
 
-        int posicion = (int) (Math.random() * 27);
-        List<Integer> posiblesVotaciones = List.of(1, 2, 3, 4, 5, 6, 7, 8, 10, 12);
-
-
+        Integer[] posiblesVotaciones = {1, 2, 3, 4, 5, 6, 7, 8, 10, 12};
         int aux = 0;
-        while (posiblesVotaciones.size() != 0) {
 
+        while (aux != 10) {
 
-            countriesList.get(posicion).setScoreReceived(getScoreReceived() + posiblesVotaciones(aux));
+            Country country = countriesList.get((int) (Math.random() * 26));
 
-            posiblesVotaciones.remove(aux);
+            if (!(country.getName().equals(name))) {
+                country.setScoreReceived(scoreReceived + posiblesVotaciones[aux]);
+                aux++;
+            }
 
         }
-
-
-
-
-
     }
 
     @Override
