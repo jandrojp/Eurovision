@@ -1,9 +1,11 @@
 package es.ieslavereda;
 
-
+import java.util.Comparator;
 import java.util.List;
 
 public class Country {
+
+    private static final Comparator<Country> SORT_BY_ALPHABETICALLY = Comparator.comparing(Country::getName);
     private String name;
     private String group;
     private String song;

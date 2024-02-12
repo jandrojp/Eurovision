@@ -1,6 +1,8 @@
 package es.ieslavereda;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -40,13 +42,14 @@ public class Main {
             c.vote(countriesList);
         }
 
-
-
+        // - Listado de todos los países participantes
         for (Country c : countriesList) {
-            System.out.println(c);
+            System.out.print(c.getName() + " | ");
         }
-
         System.out.println();
+
+        // - Listado de todos los países por orden alfabético junto con las votaciones realizadas ordenadas de mayor a menor.
+        Collections.sort(countriesList, Country.)
 
     }
 }
