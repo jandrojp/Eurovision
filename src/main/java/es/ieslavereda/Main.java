@@ -2,7 +2,6 @@ package es.ieslavereda;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -43,13 +42,28 @@ public class Main {
         }
 
         // - Listado de todos los países participantes
+        System.out.println("LIST OF ALL PARTICIPATING COUNTRIES");
+        System.out.println("------------------------------------");
         for (Country c : countriesList) {
-            System.out.print(c.getName() + " | ");
+            System.out.println(c.getName());
         }
         System.out.println();
 
         // - Listado de todos los países por orden alfabético junto con las votaciones realizadas ordenadas de mayor a menor.
-        Collections.sort(countriesList, Country.)
+        List<Country> orderedList = new ArrayList<>(countriesList);
+        Collections.sort(orderedList);
+
+        System.out.println("LIST OF ALL COUNTRIES IN ALPHABETICAL ORDER ALONG WITH THE VOTES TAKEN ORDERED FROM HIGHEST TO LOWEST");
+        System.out.println("------------------------------------------------------------------------------------------------------");
+
+        for (Country c : orderedList) {
+            System.out.println(c.getName().toUpperCase());
+            System.out.println(c.getVotes());
+        }
+        System.out.println();
+
+        // - Listado de los países ordenados por puntuaciones recibidas.
+
 
     }
 }
