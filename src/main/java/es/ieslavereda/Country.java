@@ -3,6 +3,10 @@ package es.ieslavereda;
 import java.util.*;
 
 public class Country implements Comparable<Country> {
+
+    public static final Comparator<Country> SORT_BY_SCORE = Comparator.comparing(Country::getScoreReceived).reversed();
+    public static final Comparator<Country> SORT_BY_SONG = Comparator.comparing(Country::getSong);
+    public static final Comparator<Country> SORT_BY_SINGER = Comparator.comparing(Country::getGroup);
     private String name;
     private String group;
     private String song;
@@ -21,7 +25,9 @@ public class Country implements Comparable<Country> {
     public String getGroup() { return group; }
     public String getSong() { return song; }
     public Integer getScoreReceived() { return scoreReceived; }
-    public String getVotes() {
+    public Map<Integer, Country> getVotes() { return votes; }
+
+    public String getVotesString() {
         String allVotes = "";
 
         for (Integer i : votes.keySet()) {
@@ -30,6 +36,28 @@ public class Country implements Comparable<Country> {
 
         return allVotes;
     }
+
+    /*
+    public Integer scoreReturn(Country country) {
+
+        for (int i = 0; i < 10; i++) {
+            if (votes.get(i).getName().equals(country.getName())) {
+                return ;
+            }
+        }
+    }
+
+    public static <K, V> K obtenerClavePorValor(Map<K, V> mapa, V valorBuscado) {
+        for (Map.Entry<K, V> entry : mapa.entrySet()) {
+            if (valorBuscado.equals(entry.getValue())) {
+                return entry.getKey();
+            }
+        }
+        return null; // Valor no encontrado en el mapa
+    }
+
+     */
+
     public void setScoreReceived(Integer scoreReceived) { this.scoreReceived = scoreReceived; }
 
     public void vote(List<Country> countriesList) {

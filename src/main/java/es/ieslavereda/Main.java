@@ -44,25 +44,81 @@ public class Main {
         // - Listado de todos los países participantes
         System.out.println("LIST OF ALL PARTICIPATING COUNTRIES");
         System.out.println("------------------------------------");
+
         for (Country c : countriesList) {
             System.out.println(c.getName());
         }
         System.out.println();
 
         // - Listado de todos los países por orden alfabético junto con las votaciones realizadas ordenadas de mayor a menor.
-        List<Country> orderedList = new ArrayList<>(countriesList);
-        Collections.sort(orderedList);
+        List<Country> orderedAlphabeticList = new ArrayList<>(countriesList);
+        Collections.sort(orderedAlphabeticList);
 
         System.out.println("LIST OF ALL COUNTRIES IN ALPHABETICAL ORDER ALONG WITH THE VOTES TAKEN ORDERED FROM HIGHEST TO LOWEST");
         System.out.println("------------------------------------------------------------------------------------------------------");
 
-        for (Country c : orderedList) {
+        for (Country c : orderedAlphabeticList) {
             System.out.println(c.getName().toUpperCase());
-            System.out.println(c.getVotes());
+            System.out.println(c.getVotesString());
         }
         System.out.println();
 
         // - Listado de los países ordenados por puntuaciones recibidas.
+        System.out.println("LIST OF COUNTRIES ORDERED BY SCORES RECEIVED");
+        System.out.println("---------------------------------------------");
+        List<Country> orderedScoreList = new ArrayList<>(countriesList);
+        orderedScoreList.sort(Country.SORT_BY_SCORE);
+
+        for (Country c : orderedScoreList) {
+            System.out.println(c.getName() + " " + c.getScoreReceived());
+        }
+        System.out.println();
+
+        // - Nombre del país ganador y países que le votaron junto con los puntos así que le han votado junto con los puntos asignados por cada uno de ellos.
+        Country winCountry = orderedScoreList.get(0);
+        System.out.println("WINNING COUNTRY --> " + winCountry);
+
+        for (Country c : orderedScoreList) {
+            if (c.getVotes().containsValue(winCountry)) {
+
+                System.out.println(c.getName() + " ");
+
+            }
+        }
+        System.out.println();
+
+        // - Listado de canciones ordenadas por nombre.
+        System.out.println("LIST OF SONGS ORDERED BY NAME");
+        System.out.println("------------------------------");
+        List<Country> nameSongOrderedList = new ArrayList<>(countriesList);
+        nameSongOrderedList.sort(Country.SORT_BY_SONG);
+
+        for (Country c : nameSongOrderedList) {
+            System.out.println(c.getSong());
+        }
+        System.out.println();
+
+        // - Listado de las 3 canciones más votadas junto con su puntuación.
+        System.out.println("LIST OF THE 3 MOST VOTED SONGS ALONG WITH THEIR SCORE");
+        System.out.println("------------------------------------------------------");
+        List<Country> songsMostVotedList = new ArrayList<>(orderedScoreList);
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println(songsMostVotedList.get(i).getSong() + " -> " + songsMostVotedList.get(i).getScoreReceived());
+        }
+        System.out.println();
+
+        // - Listado de cantantes ordenados por nombre.
+        System.out.println("LIST OF SINGERS ORDERED BY NAME");
+        System.out.println("--------------------------------");
+        List<Country> nameSingerOrderedList = new ArrayList<>(countriesList);
+        nameSingerOrderedList.sort(Country.SORT_BY_SINGER);
+
+        for (Country c : nameSingerOrderedList) {
+            System.out.println(c.getGroup());
+        }
+        System.out.println();
+
 
 
     }
