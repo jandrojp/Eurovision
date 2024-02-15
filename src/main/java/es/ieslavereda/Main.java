@@ -80,15 +80,12 @@ public class Main {
 
             if (c.getVotes().containsValue(winCountry)) {
 
-                System.out.println(c.getName() + " " + obtenerClavePorValor(c.getVotes(), winCountry));
+                System.out.println(c.getName() + " " + getKeyByValue(c.getVotes(), winCountry));
 
             }
 
         }
         System.out.println();
-
-
-
 
         // - Listado de canciones ordenadas por nombre.
         System.out.println("LIST OF SONGS ORDERED BY NAME");
@@ -122,16 +119,16 @@ public class Main {
         }
         System.out.println();
 
-
-
     }
 
-    public static <K, V> K obtenerClavePorValor(Map<K, V> mapa, V valorBuscado) {
-        for (Map.Entry<K, V> entry : mapa.entrySet()) {
-            if (valorBuscado.equals(entry.getValue())) {
+    public static <K, V> K getKeyByValue(Map<K, V> map, V searchedValue) {
+
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+
+            if (searchedValue.equals(entry.getValue())) {
                 return entry.getKey();
             }
         }
-        return null; // Valor no encontrado en el mapa
+        return null;
     }
 }

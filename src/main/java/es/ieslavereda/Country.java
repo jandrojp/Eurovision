@@ -71,7 +71,7 @@ public class Country implements Comparable<Country> {
             Country country = countriesList.get((int) (Math.random() * 26));
 
             if (!(country.getName().equals(name)) && !(countries.contains(country))) {
-                country.setScoreReceived(scoreReceived + posiblesVotaciones[aux]);
+                country.setScoreReceived(country.getScoreReceived() + posiblesVotaciones[aux]);
                 votes.put(posiblesVotaciones[aux], country);
                 countries.add(country);
                 aux++;
