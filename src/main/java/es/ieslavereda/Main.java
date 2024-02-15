@@ -1,8 +1,6 @@
 package es.ieslavereda;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -79,13 +77,18 @@ public class Main {
         System.out.println("WINNING COUNTRY --> " + winCountry);
 
         for (Country c : orderedScoreList) {
+
             if (c.getVotes().containsValue(winCountry)) {
 
-                System.out.println(c.getName() + " ");
+                System.out.println(c.getName() + " " + obtenerClavePorValor(c.getVotes(), winCountry));
 
             }
+
         }
         System.out.println();
+
+
+
 
         // - Listado de canciones ordenadas por nombre.
         System.out.println("LIST OF SONGS ORDERED BY NAME");
@@ -121,5 +124,14 @@ public class Main {
 
 
 
+    }
+
+    public static <K, V> K obtenerClavePorValor(Map<K, V> mapa, V valorBuscado) {
+        for (Map.Entry<K, V> entry : mapa.entrySet()) {
+            if (valorBuscado.equals(entry.getValue())) {
+                return entry.getKey();
+            }
+        }
+        return null; // Valor no encontrado en el mapa
     }
 }
