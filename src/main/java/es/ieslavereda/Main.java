@@ -77,13 +77,9 @@ public class Main {
         System.out.println("WINNING COUNTRY --> " + winCountry);
 
         for (Country c : orderedScoreList) {
-
             if (c.getVotes().containsValue(winCountry)) {
-
                 System.out.println(c.getName() + " " + getKeyByValue(c.getVotes(), winCountry));
-
             }
-
         }
         System.out.println();
 
